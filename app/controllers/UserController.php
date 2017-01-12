@@ -57,7 +57,7 @@ class UserController extends Controller
                 $model->login();
                 $this->redirect('/');
             } else {
-                $errors[] = 'Комбінація логін/пароль не співпадають';
+                $errors[] = 'Username/password combination incorrect';
             }
         }
 
