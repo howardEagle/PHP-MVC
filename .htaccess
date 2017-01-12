@@ -1,0 +1,37 @@
+RewriteEngine on
+
+AddDefaultCharset utf-8
+
+# Mod_Autoindex
+<IfModule mod_autoindex.c>
+  # Запрещаем просмотр содержимого папок
+  Options -Indexes
+</IfModule>
+
+Options +FollowSymlinks
+
+# backend
+RewriteCond %{REQUEST_URI} ^/(backend)
+RewriteRule ^backend/assets/(.*)$ backend/web/assets/$1 [L]
+RewriteRule ^backend/css/(.*)$ backend/web/css/$1 [L]
+RewriteRule ^backend/img/(.*)$ backend/web/img/$1 [L]
+RewriteRule ^backend/js/(.*)$ backend/web/js/$1 [L]
+
+RewriteCond %{REQUEST_URI} !^/backend/web/(assets|css|img)/
+RewriteCond %{REQUEST_URI} ^/(backend)
+RewriteRule ^.*$ backend/web/index.php [QSA,L]
+
+# не дозволяти httpd віддавати файли, що починаються із крапки (.htaccess, .svn, .git та інші)
+RedirectMatch 403 /\..*$
+RewriteCond %{REQUEST_URI} ^/.*
+RewriteRule ^assets/(.*)$ app/web/assets/$1 [L]
+RewriteRule ^css/(.*)$ app/web/css/$1 [L]
+RewriteRule ^img/(.*)$ app/web/img/$1 [L]
+RewriteRule ^js/(.*)$ app/web/js/$1 [L]
+
+RewriteCond %{REQUEST_URI} !index.php
+RewriteCond %{REQUEST_FILENAME} !-f [OR]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ app/web/index.php?r=$1 [QSA,L]
+
+

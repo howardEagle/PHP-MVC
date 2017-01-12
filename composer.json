@@ -1,0 +1,5 @@
+{
+    "require": {
+        "parm/parm": "2.*"
+    }
+}
