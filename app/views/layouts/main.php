@@ -14,13 +14,13 @@
     <div id="header">
         <!-- begin pages -->
         <ul class="pages">
-            <li><a href="/?r=user/about">Про мене</a></li>
-            <li><a href="/?r=user/register">Реєстрація</a></li>
+            <li><a href="/?r=user/about">About me</a></li>
+            <li><a href="/?r=user/register">Register</a></li>
         </ul>
         <!-- end pages -->
         <form action="http://all-free-download.com/free-website-templates/">
             <input type="text" name="s" id="s" value=""/>
-            <button type="submit">Пошук</button>
+            <button type="submit">Search</button>
         </form>
         <div class="break"></div>
         <!-- begin logo -->
@@ -36,16 +36,14 @@
         <!-- end sponsor -->
         <!-- begin categories -->
         <ul class="categories">
-            <li><a href="/?r=post">Записи</a></li>
-            <li><a href="http://all-free-download.com/free-website-templates/">Коментарі</a></li>
-            <li><a href="http://all-free-download.com/free-website-templates/">Галерея</a></li>
+            <li><a href="/?r=post">Posts</a></li>
             <li>
                 <?php
                 $userId = $_SESSION['user_id'];
                 if (empty($userId)) : ?>
-                    <a href="/?r=user/login">Вхід</a>
+                    <a href="/?r=user/login">Login</a>
                 <?php else : ?>
-                    <a href="/?r=user/logout">Вихід</a>
+                    <a href="/?r=user/logout">Logout</a>
                 <?php endif ?>
             </li>
         </ul>
