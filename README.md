@@ -1,1 +1,1 @@
-MVC framework for fun
+MVC framework for fun :D
