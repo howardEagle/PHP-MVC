@@ -1,1 +1,1 @@
-Awesome MVC framework :)
+MVC framework for fun
